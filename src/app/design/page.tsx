@@ -10,14 +10,14 @@ import { CaseStudy } from '@/types';
 
 const caseStudies = caseStudiesData as CaseStudy[];
 
-type TypeFilter = 'all' | 'UI_UX' | 'BRANDING' | 'RESEARCH' | 'WEB_DESIGN';
+type TypeFilter = 'all' | 'ui-ux' | 'branding' | 'research' | 'web-design';
 
 const typeLabels: Record<TypeFilter, string> = {
   all: 'All Work',
-  UI_UX: 'UI/UX Design',
-  BRANDING: 'Branding',
-  RESEARCH: 'UX Research',
-  WEB_DESIGN: 'Web Design',
+  'ui-ux': 'UI/UX Design',
+  branding: 'Branding',
+  research: 'UX Research',
+  'web-design': 'Web Design',
 };
 
 export default function DesignPage() {
@@ -28,7 +28,7 @@ export default function DesignPage() {
       ? caseStudies
       : caseStudies.filter((study) => study.type === filter);
 
-  const filters: TypeFilter[] = ['all', 'UI_UX', 'WEB_DESIGN', 'BRANDING', 'RESEARCH'];
+  const filters: TypeFilter[] = ['all', 'ui-ux', 'web-design', 'branding', 'research'];
 
   return (
     <div className="py-20">
@@ -68,7 +68,7 @@ export default function DesignPage() {
         </motion.div>
 
         {/* Case Studies Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           {filteredCaseStudies.map((caseStudy, index) => (
             <CaseStudyCard key={caseStudy.id} caseStudy={caseStudy} index={index} />
           ))}

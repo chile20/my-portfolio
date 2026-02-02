@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <FeaturedProjects projects={featuredProjects} />
+      {/* <FeaturedProjects projects={featuredProjects} /> */}
     </>
   );
 }
