@@ -1,0 +1,117 @@
+[
+  {
+    "id": "1",
+    "company": "Freelance",
+    "role": "Software Developer",
+    "type": "WORK",
+    "startDate": "2025-03-01",
+    "endDate": null,
+    "current": false,
+    "description": "Building modern web applications for small businesses and startups",
+    "technologies": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Laravel",
+      "MySQL",
+      "TailwindCSS",
+      "Docker"
+    ],
+    "logo": "/images/companies/freelance.png",
+    "location": "Remote"
+  },
+  {
+    "id": "2",
+    "company": "CSU System Operations",
+    "role": "Full-Stack Developer",
+    "type": "WORK",
+    "startDate": "2023-01-01",
+    "endDate": "2024-12-31",
+    "current": false,
+    "description": "Built enterprise dashboard applications for the California State University system serving 10,000+ education professionals across 23 campuses",
+    "technologies": [
+      "PHP",
+      "Laravel",
+      "Vue.js",
+      "MySQL",
+      "Bootstrap",
+      "Sass",
+      "REST APIs",
+      "Git"
+    ],
+    "logo": "/images/companies/csu.png",
+    "location": "California, USA"
+  },
+  {
+    "id": "3",
+    "company": "CodeLink",
+    "role": "UI/UX Designer",
+    "type": "WORK",
+    "startDate": "2019-07-01",
+    "endDate": "2020-12-31",
+    "current": false,
+    "description": "Designed user interfaces for enterprise software and contributed to US market expansion efforts",
+    "technologies": [
+      "Figma",
+      "Adobe XD",
+      "Sketch",
+      "HTML/CSS",
+      "JavaScript"
+    ],
+    "logo": "/images/companies/codelink.png",
+    "location": "California, USA"
+  },
+  {
+    "id": "4",
+    "company": "Hapii Lab",
+    "role": "HCI Student Researcher",
+    "type": "RESEARCH",
+    "startDate": "2024-01-01",
+    "endDate": "2024-12-31",
+    "current": false,
+    "description": "Researched human-computer interaction with focus on search infrastructure and user experience",
+    "technologies": [
+      "Docker",
+      "AWS",
+      "JavaScript",
+      "Postman",
+      "Google Analytics"
+    ],
+    "logo": "/images/companies/hapii.png",
+    "location": "Pomona, CA"
+  },
+  {
+    "id": "5",
+    "company": "Cal Poly Pomona",
+    "role": "B.S. Computer Science",
+    "type": "EDUCATION",
+    "startDate": "2021-01-01",
+    "endDate": "2025-01-31",
+    "current": false,
+    "description": "Bachelor of Science in Computer Science with 3.92 GPA",
+    "technologies": [
+      "PHP",
+      "Laravel",
+      "JavaScript",
+      "TypeScript",
+      "Vue.js",
+      "MySQL",
+      "Docker"
+    ],
+    "logo": "/images/companies/cpp.png",
+    "location": "Pomona, CA"
+  },
+  {
+    "id": "6",
+    "company": "University of Economics and Law",
+    "role": "B.A. Finance",
+    "type": "EDUCATION",
+    "startDate": "2016-09-01",
+    "endDate": "2019-06-30",
+    "current": false,
+    "description": "Bachelor of Arts in Finance, graduated before migrating to the United States in 2019",
+    "technologies": [],
+    "logo": "/images/companies/uel.png",
+    "location": "Ho Chi Minh City, Vietnam"
+  }
+]

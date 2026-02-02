@@ -1,0 +1,144 @@
+[
+  {
+    "id": "1",
+    "name": "React",
+    "category": "FRONTEND",
+    "proficiency": 95,
+    "yearsOfExperience": 4,
+    "icon": "react",
+    "projectCount": 25
+  },
+  {
+    "id": "2",
+    "name": "Next.js",
+    "category": "FRONTEND",
+    "proficiency": 90,
+    "yearsOfExperience": 3,
+    "icon": "nextjs",
+    "projectCount": 15
+  },
+  {
+    "id": "3",
+    "name": "Vue.js",
+    "category": "FRONTEND",
+    "proficiency": 85,
+    "yearsOfExperience": 3,
+    "icon": "vuejs",
+    "projectCount": 12
+  },
+  {
+    "id": "4",
+    "name": "TypeScript",
+    "category": "FRONTEND",
+    "proficiency": 90,
+    "yearsOfExperience": 3,
+    "icon": "typescript",
+    "projectCount": 20
+  },
+  {
+    "id": "5",
+    "name": "Tailwind CSS",
+    "category": "FRONTEND",
+    "proficiency": 95,
+    "yearsOfExperience": 3,
+    "icon": "tailwindcss",
+    "projectCount": 18
+  },
+  {
+    "id": "6",
+    "name": "Node.js",
+    "category": "BACKEND",
+    "proficiency": 85,
+    "yearsOfExperience": 4,
+    "icon": "nodejs",
+    "projectCount": 15
+  },
+  {
+    "id": "7",
+    "name": "Laravel",
+    "category": "BACKEND",
+    "proficiency": 80,
+    "yearsOfExperience": 2,
+    "icon": "laravel",
+    "projectCount": 8
+  },
+  {
+    "id": "8",
+    "name": "PHP",
+    "category": "BACKEND",
+    "proficiency": 80,
+    "yearsOfExperience": 3,
+    "icon": "php",
+    "projectCount": 10
+  },
+  {
+    "id": "9",
+    "name": "MySQL",
+    "category": "BACKEND",
+    "proficiency": 85,
+    "yearsOfExperience": 4,
+    "icon": "mysql",
+    "projectCount": 18
+  },
+  {
+    "id": "10",
+    "name": "GraphQL",
+    "category": "BACKEND",
+    "proficiency": 75,
+    "yearsOfExperience": 2,
+    "icon": "graphql",
+    "projectCount": 6
+  },
+  {
+    "id": "11",
+    "name": "Git",
+    "category": "TOOLS",
+    "proficiency": 90,
+    "yearsOfExperience": 5,
+    "icon": "git",
+    "projectCount": 30
+  },
+  {
+    "id": "12",
+    "name": "Docker",
+    "category": "TOOLS",
+    "proficiency": 70,
+    "yearsOfExperience": 2,
+    "icon": "docker",
+    "projectCount": 8
+  },
+  {
+    "id": "13",
+    "name": "Figma",
+    "category": "DESIGN",
+    "proficiency": 85,
+    "yearsOfExperience": 3,
+    "icon": "figma",
+    "projectCount": 15
+  },
+  {
+    "id": "14",
+    "name": "UI/UX Design",
+    "category": "DESIGN",
+    "proficiency": 80,
+    "yearsOfExperience": 3,
+    "icon": "palette",
+    "projectCount": 12
+  },
+  {
+    "id": "15",
+    "name": "Problem Solving",
+    "category": "SOFT_SKILLS",
+    "proficiency": 90,
+    "yearsOfExperience": 5,
+    "projectCount": 30
+  },
+  {
+    "id": "16",
+    "name": "Team Collaboration",
+    "category": "SOFT_SKILLS",
+    "proficiency": 85,
+    "yearsOfExperience": 4,
+    "projectCount": 20
+  }
+]
