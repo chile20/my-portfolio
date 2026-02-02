@@ -29,7 +29,7 @@ export function Hero() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-2xl font-medium text-slate-600 dark:text-slate-400">
-              👋 Hi, I'm
+              {"👋 Hi, I'm"}
             </span>
           </motion.div>
 

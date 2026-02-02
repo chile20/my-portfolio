@@ -1,7 +1,7 @@
 import { HTMLAttributes, forwardRef } from 'react';
 import { cn } from '@/lib/utils/cn';
 
-export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {}
+type ContainerProps = HTMLAttributes<HTMLDivElement>;
 
 /**
  * Container component for consistent max-width and centering
