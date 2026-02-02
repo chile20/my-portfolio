@@ -1,12 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { format, parseISO } from 'date-fns';
-import Card, { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
-import Badge from '@/components/ui/Badge';
-import Button from '@/components/ui/Button';
+import Image from 'next/image';
 import { CaseStudy } from '@/types';
 
 interface CaseStudyCardProps {
@@ -16,111 +13,103 @@ interface CaseStudyCardProps {
 
 /**
  * Case Study Card Component
- * Displays design case study preview with image, description, and metrics
+ * Editorial-style card with minimal borders and typography focus
  */
 export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
-  const publishDate = format(parseISO(caseStudy.publishedAt), 'MMM dd, yyyy');
-
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      className="group"
     >
-      <Card hover className="h-full overflow-hidden">
+      <Link href={`/case-studies/${caseStudy.slug}`} className="block">
         {/* Hero Image */}
-        <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-slate-400">
-              <svg
-                className="mx-auto h-16 w-16"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <p className="mt-2 text-sm">Image placeholder</p>
+        <div className="relative mb-6 aspect-[3/2] overflow-hidden bg-slate-100 dark:bg-slate-900">
+          {caseStudy.heroImage ? (
+            <>
+              <Image
+                src={caseStudy.heroImage}
+                alt={caseStudy.title}
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="lazy"
+                quality={85}
+              />
+              {/* Subtle overlay on hover */}
+              <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/5" />
+            </>
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center text-slate-400">
+                <svg
+                  className="mx-auto h-12 w-12"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                <p className="mt-2 text-sm">No image</p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
-        <CardHeader>
-          <div className="mb-2 flex items-center gap-2">
-            {caseStudy.featured && <Badge variant="warning">Featured</Badge>}
-            <Badge variant="primary">{caseStudy.type.replace('_', '/')}</Badge>
+        {/* Content */}
+        <div className="space-y-4">
+          {/* Category */}
+          <div className="text-sm font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            {caseStudy.type.replace('_', ' / ')}
           </div>
-          <CardTitle>{caseStudy.title}</CardTitle>
-          <CardDescription>
-            <span className="font-medium">{caseStudy.client}</span> • {caseStudy.duration}
-          </CardDescription>
-        </CardHeader>
 
-        <CardContent>
-          <p className="mb-4 line-clamp-3 text-sm text-slate-600 dark:text-slate-400">
+          {/* Title */}
+          <h3 className="text-2xl font-bold tracking-tight text-slate-900 transition-colors group-hover:text-slate-600 dark:text-white dark:group-hover:text-slate-300">
+            {caseStudy.title}
+          </h3>
+
+          {/* Client & Duration */}
+          <p className="text-base text-slate-600 dark:text-slate-400">
+            <span className="font-medium text-slate-900 dark:text-slate-300">{caseStudy.client}</span>
+            {' • '}
+            {caseStudy.duration}
+          </p>
+
+          {/* Problem Statement */}
+          <p className="line-clamp-2 text-base leading-relaxed text-slate-600 dark:text-slate-400">
             {caseStudy.problemStatement}
           </p>
 
-          {/* Tools Used */}
-          <div className="mb-4">
-            <h4 className="mb-2 text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">
-              Tools Used
-            </h4>
-            <div className="flex flex-wrap gap-1.5">
-              {caseStudy.tools.slice(0, 4).map((tool) => (
-                <Badge key={tool} variant="outline" size="sm">
-                  {tool}
-                </Badge>
-              ))}
-              {caseStudy.tools.length > 4 && (
-                <Badge variant="outline" size="sm">
-                  +{caseStudy.tools.length - 4}
-                </Badge>
-              )}
-            </div>
-          </div>
-
-          {/* Key Metrics */}
-          {caseStudy.metrics && caseStudy.metrics.length > 0 && (
-            <div className="grid grid-cols-2 gap-3">
-              {caseStudy.metrics.slice(0, 2).map((metric) => (
-                <div
-                  key={metric.label}
-                  className="rounded-lg bg-blue-50 p-3 dark:bg-blue-950/20"
-                >
-                  <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
-                    {metric.value}
-                  </div>
-                  <div className="text-xs text-slate-600 dark:text-slate-400">
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
+          {/* Tools - Clean text list */}
+          {caseStudy.tools && caseStudy.tools.length > 0 && (
+            <div className="pt-2">
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                {caseStudy.tools.slice(0, 4).join(' • ')}
+                {caseStudy.tools.length > 4 && ` • +${caseStudy.tools.length - 4} more`}
+              </p>
             </div>
           )}
 
-          {/* Publish Date */}
-          <div className="mt-4 flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-            <Calendar className="h-3.5 w-3.5" />
-            {publishDate}
-          </div>
-        </CardContent>
-
-        <CardFooter>
-          <Link href={`/design/${caseStudy.slug}`} className="w-full">
-            <Button variant="outline" size="sm" className="group w-full">
+          {/* Read More Link */}
+          <div className="flex items-center gap-2 pt-2 text-sm font-medium text-slate-900 dark:text-white">
+            <span className="transition-colors group-hover:text-slate-600 dark:group-hover:text-slate-300">
               View Case Study
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </Link>
-        </CardFooter>
-      </Card>
-    </motion.div>
+            </span>
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </div>
+        </div>
+      </Link>
+
+      {/* Bottom divider */}
+      <div className="mt-8 h-px bg-gradient-to-r from-slate-200 via-slate-100 to-transparent dark:from-slate-800 dark:via-slate-900 dark:to-transparent" />
+    </motion.article>
   );
 }

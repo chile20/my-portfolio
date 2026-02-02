@@ -15,12 +15,12 @@ const footerLinks = [
     links: [
       { label: 'Home', href: '/' },
       { label: 'Career', href: '/career' },
-      { label: 'Projects', href: '/projects' },
     ],
   },
   {
     title: 'Content',
     links: [
+      { label: 'Projects', href: '/projects' },
       { label: 'Design', href: '/design' },
     ],
   },
@@ -46,16 +46,8 @@ export function Footer() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {/* Brand Section */}
             <div className="md:col-span-1">
-              <Link
-                href="/"
-                className="text-xl font-bold text-slate-900 dark:text-slate-100"
-              >
-                {siteConfig.name}
-              </Link>
-
-
               {/* Social Links */}
-              <div className="mt-6 flex items-center gap-4">
+              <div className="flex items-center gap-4">
                 {socialLinks.map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}

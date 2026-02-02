@@ -52,7 +52,7 @@ export function Header() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-600"
+              className="text-sm font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-slate-600 hover:decoration-slate-400 dark:text-white dark:decoration-slate-700 dark:hover:text-slate-300 dark:hover:decoration-slate-600"
             >
               Resume
             </Link>
@@ -90,7 +90,7 @@ export function Header() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 rounded-lg bg-blue-600 px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+                className="block text-base font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-slate-600 hover:decoration-slate-400 dark:text-white dark:decoration-slate-700 dark:hover:text-slate-300"
               >
                 Download Resume
               </Link>
