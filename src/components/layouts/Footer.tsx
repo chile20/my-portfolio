@@ -52,9 +52,7 @@ export function Footer() {
               >
                 {siteConfig.name}
               </Link>
-              <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
-                {siteConfig.description}
-              </p>
+
 
               {/* Social Links */}
               <div className="mt-6 flex items-center gap-4">
