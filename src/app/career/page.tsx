@@ -10,7 +10,7 @@ import { Experience } from '@/types';
 
 const experiences = experiencesData as Experience[];
 
-type FilterType = 'all' | 'WORK' | 'VOLUNTEER' | 'EDUCATION' | 'RESEARCH';
+type FilterType = 'all' | 'work' | 'volunteer' | 'education' | 'research';
 
 export default function CareerPage() {
   const [filter, setFilter] = useState<FilterType>('all');
@@ -20,10 +20,10 @@ export default function CareerPage() {
 
   const filters: Array<{ value: FilterType; label: string }> = [
     { value: 'all', label: 'All' },
-    { value: 'WORK', label: 'Work' },
-    { value: 'VOLUNTEER', label: 'Volunteer' },
-    { value: 'EDUCATION', label: 'Education' },
-    { value: 'RESEARCH', label: 'Research' },
+    { value: 'work', label: 'Work' },
+    { value: 'volunteer', label: 'Volunteer' },
+    { value: 'education', label: 'Education' },
+    { value: 'research', label: 'Research' },
   ];
 
   return (

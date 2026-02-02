@@ -10,15 +10,15 @@ import { Skill } from '@/types';
 
 const skills = skillsData as Skill[];
 
-type CategoryFilter = 'all' | 'FRONTEND' | 'BACKEND' | 'TOOLS' | 'DESIGN' | 'SOFT_SKILLS';
+type CategoryFilter = 'all' | 'frontend' | 'backend' | 'tools' | 'design' | 'soft-skills';
 
 const categoryLabels: Record<CategoryFilter, string> = {
   all: 'All Skills',
-  FRONTEND: 'Frontend',
-  BACKEND: 'Backend',
-  TOOLS: 'Tools',
-  DESIGN: 'Design',
-  SOFT_SKILLS: 'Soft Skills',
+  frontend: 'Frontend',
+  backend: 'Backend',
+  tools: 'Tools',
+  design: 'Design',
+  'soft-skills': 'Soft Skills',
 };
 
 export default function SkillsPage() {
@@ -27,7 +27,7 @@ export default function SkillsPage() {
   const filteredSkills =
     filter === 'all' ? skills : skills.filter((skill) => skill.category === filter);
 
-  const filters: CategoryFilter[] = ['all', 'FRONTEND', 'BACKEND', 'TOOLS', 'DESIGN', 'SOFT_SKILLS'];
+  const filters: CategoryFilter[] = ['all', 'frontend', 'backend', 'tools', 'design', 'soft-skills'];
 
   // Group skills by category for display
   const groupedSkills = filteredSkills.reduce(

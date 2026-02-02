@@ -1,17 +1,13 @@
 "use client";
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Github, Linkedin } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Card, { CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import Input from '@/components/ui/Input';
-import Textarea from '@/components/ui/Textarea';
-import Button from '@/components/ui/Button';
 import { siteConfig } from '@/config/site';
 
 const socialLinks = [
   { icon: Github, href: siteConfig.links.github, label: 'GitHub', username: '@yourusername' },
   { icon: Linkedin, href: siteConfig.links.linkedin, label: 'LinkedIn', username: 'yourusername' },
-  { icon: Twitter, href: siteConfig.links.twitter, label: 'Twitter', username: '@yourusername' },
   { icon: Mail, href: `mailto:${siteConfig.links.email}`, label: 'Email', username: siteConfig.links.email },
 ];
 
@@ -20,7 +16,7 @@ export default function ContactPage() {
 
   return (
     <div className="py-20">
-      <Container size="md">
+      <Container>
         {/* Header */}
         <motion.div
           className="mb-12 text-center"

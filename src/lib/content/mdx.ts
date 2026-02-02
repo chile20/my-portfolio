@@ -44,6 +44,13 @@ export async function parseMDXFile<T = Record<string, unknown>>(
   };
 }
 
+interface BlogPostFrontmatter {
+  title: string;
+  description: string;
+  publishedAt: string;
+  [key: string]: unknown;
+}
+
 /**
  * Get all blog posts with metadata
  */
@@ -52,7 +59,7 @@ export async function getAllBlogPosts() {
 
   const posts = await Promise.all(
     files.map(async (file) => {
-      const { frontmatter, content, slug } = await parseMDXFile('blog', file);
+      const { frontmatter, content, slug } = await parseMDXFile<BlogPostFrontmatter>('blog', file);
       const stats = readingTime(content);
 
       return {
@@ -64,8 +71,8 @@ export async function getAllBlogPosts() {
   );
 
   return posts.sort((a, b) => {
-    const dateA = new Date(a.publishedAt as string);
-    const dateB = new Date(b.publishedAt as string);
+    const dateA = new Date(a.publishedAt);
+    const dateB = new Date(b.publishedAt);
     return dateB.getTime() - dateA.getTime();
   });
 }
@@ -95,6 +102,12 @@ export async function getBlogPost(slug: string) {
   };
 }
 
+interface CaseStudyFrontmatter {
+  title: string;
+  publishedAt: string;
+  [key: string]: unknown;
+}
+
 /**
  * Get all case studies with metadata
  */
@@ -103,7 +116,7 @@ export async function getAllCaseStudies() {
 
   const studies = await Promise.all(
     files.map(async (file) => {
-      const { frontmatter, slug } = await parseMDXFile('case-studies', file);
+      const { frontmatter, slug } = await parseMDXFile<CaseStudyFrontmatter>('case-studies', file);
       return {
         slug,
         ...frontmatter,
@@ -112,8 +125,8 @@ export async function getAllCaseStudies() {
   );
 
   return studies.sort((a, b) => {
-    const dateA = new Date(a.publishedAt as string);
-    const dateB = new Date(b.publishedAt as string);
+    const dateA = new Date(a.publishedAt);
+    const dateB = new Date(b.publishedAt);
     return dateB.getTime() - dateA.getTime();
   });
 }

@@ -7,6 +7,7 @@ import { createYoga } from 'graphql-yoga';
 import { createSchema } from 'graphql-yoga';
 import { typeDefs } from '@/lib/graphql/schema';
 import { resolvers } from '@/lib/graphql/resolvers';
+import { NextRequest } from 'next/server';
 
 const schema = createSchema({
   typeDefs,
@@ -19,4 +20,10 @@ const { handleRequest } = createYoga({
   fetchAPI: { Response },
 });
 
-export { handleRequest as GET, handleRequest as POST };
+export async function GET(request: NextRequest) {
+  return handleRequest(request, {});
+}
+
+export async function POST(request: NextRequest) {
+  return handleRequest(request, {});
+}

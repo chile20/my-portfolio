@@ -13,7 +13,7 @@ import { Project } from '@/types';
 
 const projects = projectsData as Project[];
 
-type TypeFilter = 'all' | 'WEB_APP' | 'MOBILE_APP' | 'API' | 'LIBRARY' | 'TOOL';
+type TypeFilter = 'all' | 'web-app' | 'mobile-app' | 'api' | 'library' | 'tool';
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState<TypeFilter>('all');
@@ -31,11 +31,11 @@ export default function ProjectsPage() {
 
   const filters: Array<{ value: TypeFilter; label: string }> = [
     { value: 'all', label: 'All' },
-    { value: 'WEB_APP', label: 'Web Apps' },
-    { value: 'MOBILE_APP', label: 'Mobile Apps' },
-    { value: 'API', label: 'APIs' },
-    { value: 'LIBRARY', label: 'Libraries' },
-    { value: 'TOOL', label: 'Tools' },
+    { value: 'web-app', label: 'Web Apps' },
+    { value: 'mobile-app', label: 'Mobile Apps' },
+    { value: 'api', label: 'APIs' },
+    { value: 'library', label: 'Libraries' },
+    { value: 'tool', label: 'Tools' },
   ];
 
   return (
