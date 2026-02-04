@@ -9,10 +9,6 @@ interface ProjectCardProps {
   index: number;
 }
 
-/**
- * Project Card Component
- * Editorial-style card with minimal borders and typography focus
- */
 export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <motion.article

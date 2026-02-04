@@ -82,10 +82,6 @@ const itemVariants = {
   },
 };
 
-/**
- * Quick Links Section Component
- * Displays navigation links to key portfolio sections
- */
 export function QuickLinks() {
   return (
     <section className="relative py-8">
