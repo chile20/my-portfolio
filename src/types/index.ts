@@ -53,11 +53,12 @@ export interface CaseStudy {
   title: string;
   client: string;
   duration: string;
-  type: 'ui-ux' | 'branding' | 'research' | 'web-design';
+  role: string;
+  type: 'UI_UX' | 'WEB_DESIGN' | 'BRANDING' | 'RESEARCH';
   heroImage: string;
   images: string[];
   problemStatement: string;
-  solution: string;
+  solutions: string;
   tools: string[];
   results: string[];
   metrics?: Metric[];
@@ -127,6 +128,15 @@ export interface Testimonial {
   content: string;
   rating?: number;
   date: string;
+}
+
+export interface Design {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  category?: string;
+  featured?: boolean;
 }
 
 export interface ContactFormData {

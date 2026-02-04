@@ -1,9 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
-import Link from 'next/link';
-import Button from '@/components/ui/Button';
+import { Github, Linkedin, Mail, FileDown } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import { siteConfig } from '@/config/site';
 
@@ -15,37 +13,28 @@ const socialLinks = [
 
 /**
  * Hero Section Component
- * Left-aligned minimalist hero with clean typography
+ * Clean, editorial-style hero with typography focus
  */
 export function Hero() {
   return (
-    <section className="relative min-h-[85vh] py-20 md:py-32">
+    <section className="relative py-8">
       <Container>
-        <div className="max-w-3xl">
-          {/* Greeting */}
+        <div className="max-w-5xl">
+          {/* Main Heading with Accent */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="text-2xl font-medium text-slate-600 dark:text-slate-400">
-              {"👋 Hi, I'm"}
-            </span>
-          </motion.div>
-
-          {/* Main Heading */}
-          <motion.h1
-            className="mt-4 text-5xl font-bold tracking-tight text-slate-900 dark:text-slate-100 md:text-6xl lg:text-7xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-6"
           >
-            {siteConfig.name}
-          </motion.h1>
+            <h1 className="text-5xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+              {siteConfig.name}
+            </h1>
+          </motion.div>
 
           {/* Role */}
           <motion.p
-            className="mt-3 text-2xl font-medium text-slate-700 dark:text-slate-300 md:text-3xl"
+            className="mt-6 text-2xl font-medium text-slate-700 dark:text-slate-300"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -55,7 +44,7 @@ export function Hero() {
 
           {/* Description */}
           <motion.p
-            className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400 md:text-lg"
+            className="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -63,47 +52,51 @@ export function Hero() {
             {siteConfig.description}
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div
-            className="mt-10 flex flex-wrap items-center gap-4"
+          {/* Social Links & Resume */}
+          <motion.nav
+            className="mt-10 flex items-center gap-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
+            aria-label="Social media and contact links"
           >
-            <Link href="/projects">
-              <Button size="lg" className="group">
-                View Work
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
-            <Link href={siteConfig.resume.url} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg">
-                <Download className="mr-2 h-4 w-4" />
-                Resume
-              </Button>
-            </Link>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            className="mt-12 flex items-center gap-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            {socialLinks.map(({ icon: Icon, href, label }) => (
+            <span className="text-sm font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400" aria-hidden="true">
+              Connect
+            </span>
+            <div className="flex items-center gap-4">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Connect on ${label}`}
+                  className="text-slate-600 transition-colors hover:text-slate-900 active:text-slate-950 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-sm dark:text-slate-400 dark:hover:text-slate-100 dark:active:text-white"
+                >
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </a>
+              ))}
+              <span className="h-4 w-px bg-slate-300 dark:bg-slate-700" role="separator" aria-hidden="true" />
               <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+                href="/resume.pdf"
+                download
+                aria-label="Download resume as PDF"
+                className="flex items-center gap-2 text-slate-600 transition-colors hover:text-slate-900 active:text-slate-950 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-sm dark:text-slate-400 dark:hover:text-slate-100 dark:active:text-white"
               >
-                <Icon className="h-5 w-5" />
+                <FileDown className="h-5 w-5" aria-hidden="true" />
+                <span className="text-sm font-medium">Resume</span>
               </a>
-            ))}
-          </motion.div>
+            </div>
+          </motion.nav>
+
+          {/* Subtle Bottom Accent */}
+          <motion.div
+            className="mt-16 h-px bg-gradient-to-r from-slate-200 via-slate-100 to-transparent dark:from-slate-800 dark:via-slate-900 dark:to-transparent"
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            style={{ transformOrigin: 'left' }}
+          />
         </div>
       </Container>
     </section>

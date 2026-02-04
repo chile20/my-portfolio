@@ -24,14 +24,18 @@ export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
       transition={{ duration: 0.5, delay: index * 0.05 }}
       className="group"
     >
-      <Link href={`/case-studies/${caseStudy.slug}`} className="block">
+      <Link
+        href={`/case-studies/${caseStudy.slug}`}
+        className="block focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-sm"
+        aria-label={`View case study: ${caseStudy.title}`}
+      >
         {/* Hero Image */}
         <div className="relative mb-6 aspect-[3/2] overflow-hidden bg-slate-100 dark:bg-slate-900">
           {caseStudy.heroImage ? (
             <>
               <Image
                 src={caseStudy.heroImage}
-                alt={caseStudy.title}
+                alt={`${caseStudy.title} project preview`}
                 fill
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -39,7 +43,7 @@ export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
                 quality={85}
               />
               {/* Subtle overlay on hover */}
-              <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/5" />
+              <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/5" aria-hidden="true" />
             </>
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">
@@ -77,16 +81,16 @@ export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
           </h3>
 
           {/* Client & Duration */}
-          <p className="text-base text-slate-600 dark:text-slate-400">
+          {/* <p className="text-base text-slate-600 dark:text-slate-400">
             <span className="font-medium text-slate-900 dark:text-slate-300">{caseStudy.client}</span>
             {' • '}
             {caseStudy.duration}
-          </p>
+          </p> */}
 
           {/* Problem Statement */}
-          <p className="line-clamp-2 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+          {/* <p className="line-clamp-2 text-base leading-relaxed text-slate-600 dark:text-slate-400">
             {caseStudy.problemStatement}
-          </p>
+          </p> */}
 
           {/* Tools - Clean text list */}
           {caseStudy.tools && caseStudy.tools.length > 0 && (

@@ -1,173 +1,210 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Search } from 'lucide-react';
 import Container from '@/components/ui/Container';
-import Button from '@/components/ui/Button';
-import Card, { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
-import Badge from '@/components/ui/Badge';
-import Input from '@/components/ui/Input';
+import { ProjectCard } from '@/components/sections/ProjectCard';
+import { CaseStudyCard } from '@/components/sections/CaseStudyCard';
+import { DesignCard } from '@/components/sections/DesignCard';
+import { DesignModal } from '@/components/ui/DesignModal';
 import projectsData from '@/content/data/projects.json';
-import { Project } from '@/types';
+import caseStudiesData from '@/content/data/case-studies.json';
+import designsData from '@/content/data/designs.json';
+import { Project, CaseStudy, Design } from '@/types';
 
-const projects = projectsData as Project[];
-
-type TypeFilter = 'all' | 'web-app' | 'mobile-app' | 'api' | 'library' | 'tool';
+const snippets = projectsData as Project[];
+const caseStudies = caseStudiesData as unknown as CaseStudy[];
+const designs = designsData as Design[];
 
 export default function ProjectsPage() {
-  const [filter, setFilter] = useState<TypeFilter>('all');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [activeSection, setActiveSection] = useState<string>('');
+  const [selectedDesign, setSelectedDesign] = useState<Design | null>(null);
+  const [selectedDesignIndex, setSelectedDesignIndex] = useState<number>(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const filteredProjects = projects.filter((project) => {
-    const matchesFilter = filter === 'all' || project.type === filter;
-    const matchesSearch =
-      searchQuery === '' ||
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.technologies.some((tech) => tech.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesFilter && matchesSearch;
-  });
+  const handleDesignClick = (design: Design, index: number) => {
+    setSelectedDesign(design);
+    setSelectedDesignIndex(index);
+    setIsModalOpen(true);
+  };
 
-  const filters: Array<{ value: TypeFilter; label: string }> = [
-    { value: 'all', label: 'All' },
-    { value: 'web-app', label: 'Web Apps' },
-    { value: 'mobile-app', label: 'Mobile Apps' },
-    { value: 'api', label: 'APIs' },
-    { value: 'library', label: 'Libraries' },
-    { value: 'tool', label: 'Tools' },
-  ];
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedDesign(null), 300); // Clear after animation
+  };
+
+  const handleNextDesign = () => {
+    const nextIndex = (selectedDesignIndex + 1) % designs.length;
+    setSelectedDesignIndex(nextIndex);
+    setSelectedDesign(designs[nextIndex]);
+  };
+
+  const handlePreviousDesign = () => {
+    const prevIndex = selectedDesignIndex === 0 ? designs.length - 1 : selectedDesignIndex - 1;
+    setSelectedDesignIndex(prevIndex);
+    setSelectedDesign(designs[prevIndex]);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 100; // Adjust this value based on your header height
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+  // Build navigation items based on available sections
+  const navItems = [
+    caseStudies.length > 0 && { id: 'featured', label: 'Featured Work' },
+    snippets.length > 0 && { id: 'snippets', label: 'Code Lab' },
+    caseStudies.length > 0 && { id: 'gallery', label: 'Design Gallery' },
+  ].filter(Boolean) as Array<{ id: string; label: string }>;
+
+  // Track active section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map(item => item.id);
+      const scrollPosition = window.scrollY + 200; // Offset for better UX
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    // Set initial active section
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [navItems]);
 
   return (
-    <div className="py-20">
+    <div className="py-24">
       <Container>
-        {/* Header */}
+        {/* --- SECTION 1: HEADER --- */}
         <motion.div
-          className="mb-12 text-center"
+          className="max-w-3xl mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl">
-            Projects
+          <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+            What I've Built
           </h1>
-          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-            A showcase of my development work and side projects
-          </p>
-        </motion.div>
-
-        {/* Search and Filters */}
-        <motion.div
-          className="mb-8 space-y-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <div className="relative max-w-md mx-auto">
-            <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-            <Input
-              type="text"
-              placeholder="Search projects..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
-            />
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-2">
-            {filters.map(({ value, label }) => (
-              <Button
-                key={value}
-                variant={filter === value ? 'primary' : 'outline'}
-                size="sm"
-                onClick={() => setFilter(value)}
-              >
-                {label}
-              </Button>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Projects Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card hover className="h-full flex flex-col">
-                <CardHeader>
-                  <div className="mb-2 flex items-center gap-2">
-                    {project.featured && <Badge variant="warning">Featured</Badge>}
-                    <Badge variant="primary">{project.type.replace('_', ' ')}</Badge>
-                  </div>
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-
-                <CardContent className="flex-1">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 5).map((tech) => (
-                      <Badge key={tech} variant="outline" size="sm">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.technologies.length > 5 && (
-                      <Badge variant="outline" size="sm">
-                        +{project.technologies.length - 5}
-                      </Badge>
-                    )}
-                  </div>
-                </CardContent>
-
-                <CardFooter>
-                  <div className="flex w-full gap-2">
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="View on GitHub"
-                        className="flex-1"
-                      >
-                        <Button variant="outline" size="sm" className="w-full">
-                          <Github className="mr-2 h-4 w-4" />
-                          GitHub
-                        </Button>
-                      </a>
-                    )}
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="View live demo"
-                        className="flex-1"
-                      >
-                        <Button variant="primary" size="sm" className="w-full">
-                          <ExternalLink className="mr-2 h-4 w-4" />
-                          Demo
-                        </Button>
-                      </a>
-                    )}
-                  </div>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* No results message */}
-        {filteredProjects.length === 0 && (
-          <div className="py-12 text-center">
-            <p className="text-lg text-slate-600 dark:text-slate-400">
-              No projects found matching your criteria.
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+            <p>
+              Design experience makes me write better code. Development experience makes me design smarter systems. They're not separate skills. They feed each other.
+            </p>
+            <p>
+              You'll find three things here: real projects people actually use, code experiments where I mess around with new tech, and design work from when I was focused on UI/UX.
             </p>
           </div>
-        )}
+        </motion.div>
+
+        {/* --- STICKY NAV LINKS --- */}
+        <nav
+          className="sticky top-20 z-10 py-4 mb-16 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"
+          aria-label="Page sections navigation"
+        >
+          <div className="flex gap-6 text-sm font-medium uppercase tracking-widest">
+            {navItems.map((item, index) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`relative transition-colors focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-sm ${
+                  activeSection === item.id
+                    ? 'text-slate-900 dark:text-white'
+                    : 'text-slate-500 hover:text-slate-900 active:text-slate-950 dark:hover:text-white dark:active:text-slate-100'
+                }`}
+                aria-label={`Navigate to ${item.label} section`}
+                aria-current={activeSection === item.id ? 'true' : 'false'}
+                type="button"
+              >
+                {String(index + 1).padStart(2, '0')}. {item.label}
+                {activeSection === item.id && (
+                  <motion.div
+                    className="absolute -bottom-4 left-0 right-0 h-0.5 bg-slate-900 dark:bg-white"
+                    layoutId="activeIndicator"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    aria-hidden="true"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+        </nav>
+
+
+        {/* --- SECTION 2: FEATURED CASE STUDIES --- */}
+        <section id="featured" className="mb-32">
+          <div className="mb-10">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100">Featured Work</h2>
+            <p className="text-slate-500 mt-1">Impactful projects combining strategy, UI/UX, and development.</p>
+          </div>
+
+          <div className="grid gap-20 md:grid-cols-2">
+            {caseStudies.map((caseStudy, index) => (
+              <CaseStudyCard key={caseStudy.id} caseStudy={caseStudy} index={index} />
+            ))}
+          </div>
+        </section>
+
+        {/* --- SECTION 3: THE CODE LAB (GitHub Snippets) --- */}
+        <section id="snippets" className="mb-32">
+          <div className="mb-10">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100">Code Snippets & Lab</h2>
+            <p className="text-slate-500 mt-1">Technical experiments and open-source contributions.</p>
+          </div>
+
+          <div className="grid gap-6">
+            {snippets.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </div>
+        </section>
+
+        {/* --- SECTION 4: DESIGN GALLERY --- */}
+        <section id="gallery" className="mb-12">
+          <div className="mb-10">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100">Design Gallery</h2>
+            <p className="text-slate-500 mt-1">Focusing on visual craft, motion, and interaction details.</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {designs.map((design, index) => (
+              <DesignCard
+                key={design.id}
+                design={design}
+                index={index}
+                onClick={() => handleDesignClick(design, index)}
+              />
+            ))}
+          </div>
+        </section>
+
       </Container>
+
+      {/* Design Modal */}
+      <DesignModal
+        design={selectedDesign}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onNext={handleNextDesign}
+        onPrevious={handlePreviousDesign}
+        hasNext={true}
+        hasPrevious={true}
+        currentIndex={selectedDesignIndex}
+        totalCount={designs.length}
+      />
     </div>
   );
 }
