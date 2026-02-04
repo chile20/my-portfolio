@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, FileDown } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import { siteConfig } from '@/config/site';
 
@@ -9,88 +9,46 @@ const socialLinks = [
   { icon: Mail, href: `mailto:${siteConfig.links.email}`, label: 'Email' },
 ];
 
-const footerLinks = [
-  {
-    title: 'Navigate',
-    links: [
-      { label: 'Home', href: '/' },
-      { label: 'Career', href: '/career' },
-    ],
-  },
-  {
-    title: 'Content',
-    links: [
-      { label: 'Projects', href: '/projects' },
-      { label: 'Design', href: '/design' },
-    ],
-  },
-  {
-    title: 'Resources',
-    links: [
-      { label: 'Resume', href: '/resume.pdf' },
-    ],
-  },
-];
-
 /**
  * Footer Component
- * Site footer with navigation links and social media
  */
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
+    <footer className="border-t border-slate-200 dark:border-slate-800">
       <Container>
-        <div className="py-12">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-            {/* Brand Section */}
-            <div className="md:col-span-1">
-              {/* Social Links */}
-              <div className="flex items-center gap-4">
-                {socialLinks.map(({ icon: Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="rounded-lg p-2 text-slate-600 transition-colors hover:bg-slate-200 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100"
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
+        <div className="flex flex-col items-center justify-between gap-6 py-12 md:flex-row">
+          {/* Copyright */}
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            &copy; {currentYear} {siteConfig.name}
+          </p>
 
-            {/* Footer Links */}
-            {footerLinks.map((section) => (
-              <div key={section.title}>
-                <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-900 dark:text-slate-100">
-                  {section.title}
-                </h3>
-                <ul className="space-y-3">
-                  {section.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-sm text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          {/* Social Links & Resume */}
+          <nav className="flex items-center gap-6" aria-label="Social media links">
+            {socialLinks.map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit my ${label} profile`}
+                className="text-slate-600 transition-colors hover:text-slate-900 active:text-slate-950 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-sm dark:text-slate-400 dark:hover:text-slate-100 dark:active:text-white"
+              >
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </a>
             ))}
-          </div>
-
-          {/* Bottom Bar */}
-          <div className="mt-12 border-t border-slate-200 pt-8 dark:border-slate-800">
-            <p className="text-center text-sm text-slate-600 dark:text-slate-400">
-              &copy; {currentYear} {siteConfig.name}. All rights reserved.
-            </p>
-          </div>
+            <span className="h-4 w-px bg-slate-300 dark:bg-slate-700" role="separator" aria-hidden="true" />
+            <a
+              href="/resume.pdf"
+              download
+              aria-label="Download resume as PDF"
+              className="flex items-center gap-2 text-slate-600 transition-colors hover:text-slate-900 active:text-slate-950 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-sm dark:text-slate-400 dark:hover:text-slate-100 dark:active:text-white"
+            >
+              <FileDown className="h-5 w-5" aria-hidden="true" />
+              <span className="text-sm font-medium">Resume</span>
+            </a>
+          </nav>
         </div>
       </Container>
     </footer>

@@ -8,8 +8,7 @@ import Container from '@/components/ui/Container';
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/career', label: 'Career' },
-  { href: '/design', label: 'Design' },
+  { href: '/experience', label: 'Experience' },
   { href: '/projects', label: 'Projects' },
 ];
 
@@ -27,18 +26,19 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl font-bold text-slate-900 transition-colors hover:text-blue-600 dark:text-slate-100 dark:hover:text-blue-400"
+            className="text-xl font-bold text-slate-900 transition-colors hover:text-blue-600 active:text-blue-700 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-sm dark:text-slate-100 dark:hover:text-blue-400 dark:active:text-blue-300"
+            aria-label="Chi Le - Home"
           >
             Chi Le
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:items-center md:gap-6">
+          <nav className="hidden md:flex md:items-center md:gap-6" aria-label="Main navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+                className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 active:text-slate-950 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-sm dark:text-slate-400 dark:hover:text-slate-100 dark:active:text-white"
               >
                 {link.label}
               </Link>
@@ -48,14 +48,6 @@ export function Header() {
           {/* Desktop Actions */}
           <div className="hidden items-center gap-4 md:flex">
             <ThemeToggleCompact />
-            <Link
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-slate-600 hover:decoration-slate-400 dark:text-white dark:decoration-slate-700 dark:hover:text-slate-300 dark:hover:decoration-slate-600"
-            >
-              Resume
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -63,9 +55,10 @@ export function Header() {
             <ThemeToggleCompact />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="rounded-lg p-2 transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:hover:bg-slate-800"
-              aria-label="Toggle mobile menu"
+              className="rounded-lg p-2 transition-colors hover:bg-slate-100 active:bg-slate-200 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 dark:hover:bg-slate-800 dark:active:bg-slate-700"
+              aria-label={mobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
               aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -74,26 +67,22 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="border-t border-slate-200 py-4 dark:border-slate-800 md:hidden">
+          <nav
+            id="mobile-navigation"
+            className="border-t border-slate-200 py-4 dark:border-slate-800 md:hidden"
+            aria-label="Mobile navigation"
+          >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+                  className="text-base font-medium text-slate-600 transition-colors hover:text-slate-900 active:text-slate-950 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-sm dark:text-slate-400 dark:hover:text-slate-100 dark:active:text-white"
                 >
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-base font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-slate-600 hover:decoration-slate-400 dark:text-white dark:decoration-slate-700 dark:hover:text-slate-300"
-              >
-                Download Resume
-              </Link>
             </div>
           </nav>
         )}
