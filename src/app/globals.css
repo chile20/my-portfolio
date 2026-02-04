@@ -50,10 +50,50 @@ body {
   background: rgb(100 116 139); /* slate-500 */
 }
 
-/* Focus visible styles for accessibility */
-.focus-visible:focus {
+/* Remove default focus outline for mouse users, keep for keyboard users */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Dark mode focus styles */
+.dark *:focus-visible {
+  outline-color: #60a5fa; /* blue-400 */
+}
+
+/* Skip to content link (hidden by default, visible on focus) */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.375rem;
+}
+
+.skip-to-content:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* Reduce motion for users who prefer it */
@@ -64,6 +104,7 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
