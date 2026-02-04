@@ -5,7 +5,9 @@
     "description": "Internal mobile app for staff to check in passengers at Malaysia airports",
     "image": "/images/design/airasia-checkinapp.png",
     "category": "Mobile UI",
-    "featured": true
+    "featured": true,
+    "appStoreUrl": "https://apps.apple.com/app/airasia-checkin/id1234567890",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.airasia.checkin"
   },
   {
     "id": "2",
@@ -13,23 +15,29 @@
     "description": "Internal mobile app for staff to manage airport deliveries in Malaysia",
     "image": "/images/design/airasia-deliveryapp.png",
     "category": "Mobile UI",
-    "featured": true
+    "featured": true,
+    "appStoreUrl": "https://apps.apple.com/app/airasia-delivery/id1234567890",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.airasia.delivery"
   },
   {
     "id": "3",
     "title": "LeapXpert Mobile",
-    "description": "Award-winning enterprise messaging app mobile interface for Hong Kong market",
+    "description": "Secure enterprise messaging platform for financial institutions across WhatsApp, WeChat, and Telegram",
     "image": "/images/design/leapxpert-mobile.png",
     "category": "Mobile UI",
-    "featured": true
+    "featured": true,
+    "appStoreUrl": "https://apps.apple.com/app/leapxpert/id1234567890",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.leapxpert.mobile",
+    "liveSiteUrl": "https://www.leapxpert.com"
   },
   {
     "id": "4",
     "title": "LeapXpert Web",
-    "description": "Award-winning enterprise messaging app web platform for Hong Kong market",
+    "description": "Award-winning web platform enabling financial institutions to control and audit client communications",
     "image": "/images/design/leapxpert-web.png",
     "category": "Web UI",
-    "featured": true
+    "featured": true,
+    "liveSiteUrl": "https://www.leapxpert.com"
   },
   {
     "id": "5",
@@ -37,6 +45,7 @@
     "description": "Hotel booking platform designed for Hong Kong travelers",
     "image": "/images/design/travaria.png",
     "category": "Web UI",
-    "featured": false
+    "featured": false,
+    "liveSiteUrl": "https://www.travaria.com"
   }
 ]

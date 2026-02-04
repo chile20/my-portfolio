@@ -66,6 +66,9 @@ export interface CaseStudy {
   tags: string[];
   featured: boolean;
   publishedAt: string;
+  appStoreUrl?: string;
+  googlePlayUrl?: string;
+  liveSiteUrl?: string;
 }
 
 export interface Project {
@@ -137,6 +140,9 @@ export interface Design {
   image: string;
   category?: string;
   featured?: boolean;
+  appStoreUrl?: string;
+  googlePlayUrl?: string;
+  liveSiteUrl?: string;
 }
 
 export interface ContactFormData {

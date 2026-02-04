@@ -16,10 +16,6 @@ interface GalleryModalProps {
   descriptions?: string[];
 }
 
-/**
- * Reusable Gallery Modal Component
- * Accessible lightbox for viewing images with keyboard navigation
- */
 export function GalleryModal({
   images,
   currentIndex,

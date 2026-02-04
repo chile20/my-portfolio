@@ -54,7 +54,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       <CaseStudyHero caseStudy={caseStudy} />
       <ProblemStatement caseStudy={caseStudy} />
       <ResultsImpact caseStudy={caseStudy} />
-      <ProjectGallery images={caseStudy.images} title={caseStudy.title} />
+      {caseStudy.images && caseStudy.images.length > 0 && (
+        <ProjectGallery images={caseStudy.images} title={caseStudy.title} />
+      )}
       <ProjectNavigation previous={previousStudy} next={nextStudy} />
     </main>
   );

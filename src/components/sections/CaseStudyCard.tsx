@@ -11,10 +11,6 @@ interface CaseStudyCardProps {
   index: number;
 }
 
-/**
- * Case Study Card Component
- * Editorial-style card with minimal borders and typography focus
- */
 export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
   return (
     <motion.article
@@ -72,7 +68,7 @@ export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
         <div className="space-y-4">
           {/* Category */}
           <div className="text-sm font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            {caseStudy.type.replace('_', ' / ')}
+            {caseStudy.type}
           </div>
 
           {/* Title */}

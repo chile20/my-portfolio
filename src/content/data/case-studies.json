@@ -7,7 +7,14 @@
     "duration": "18 months",
     "role": "UI/UX Designer",
     "type": "UI_UX",
-    "tools": ["Figma", "Zeplin", "Jira", "UserTesting", "Chrome DevTools", "Maze"],
+    "tools": [
+      "Figma",
+      "Zeplin",
+      "Jira",
+      "UserTesting",
+      "Chrome DevTools",
+      "Maze"
+    ],
     "heroImage": "/images/case-studies/doyou/doyou-hero.png",
     "images": [
       "/images/case-studies/doyou/doyou-gallery-1.png",
@@ -17,102 +24,120 @@
       "/images/case-studies/doyou/doyou-gallery-5.png",
       "/images/case-studies/doyou/doyou-gallery-6.png"
     ],
-  "problemStatement": [
-    "Platform built on deprecated mobile framework requiring complete technology migration to React/React Native ecosystem.",
-    "Poor visual hierarchy and overwhelming choice architecture in 'Challenges' section caused decision paralysis, while complex 5-step enrollment flow created friction in user onboarding.",
-    "Inconsistent design system with outdated aesthetic didn't reflect DoYou's wellness-focused brand identity or meet accessibility standards.",
-    "Missing gamification and feedback mechanisms resulted in low daily engagement and poor habit formation among users."
-  ],
-
-  "solutions": [
-    "Collaborated with development team to assess and implement React/React Native migration strategy, ensuring scalable cross-platform foundation for web, iOS, and Android.",
-    "Redesigned information architecture with card-based categorization system and streamlined enrollment flow from 5 steps to 2, removing unnecessary decision points.",
-    "Developed comprehensive design system with WCAG AA-compliant color palette, reusable components, and consistent spacing rules that mapped directly to React components.",
-    "Designed milestone and streak gamification system with immediate visual feedback, validated through usability testing with 15+ users and daily dogfooding of production builds."
-  ],
-
-  "results": [
-    "Successfully migrated entire platform from deprecated framework to scalable React/React Native ecosystem.",
-    "Established design system with 100% adoption across all platforms, ensuring visual consistency and accelerating future development.",
-    "Reduced enrollment friction by 60%, streamlining onboarding flow from 5 clicks to 2.",
-    "Reduced cognitive load in challenge discovery, enabling users to make faster, more confident decisions."
-  ],
-  "metrics": [
-    {
-      "label": "Platform Rating",
-      "value": "4.8/5",
-      "description": "Average user satisfaction across web, iOS, and Android."
-    },
-    {
-      "label": "Enrollment Speed",
-      "value": "60% faster",
-      "description": "Streamlined onboarding from 5-step to 2-step flow."
-    },
-    {
-      "label": "Design System Coverage",
-      "value": "100%",
-      "description": "Consistent implementation across platforms from iOS to Android, and web."
-    }
-  ],
-    "content": "Full case study content here...",
-    "tags": ["Mobile UI", "UX Research", "Gamification", "Design Systems", "Prototyping"],
-    "featured": true,
-    "publishedAt": "2024-01-15"
-  },
-  {
-    "id": "2",
-    "slug": "doyou-redesign",
-    "title": "DoYou Yoga: Gamified UX Redesign",
-    "client": "DoYou Yoga",
-    "duration": "6 months",
-    "role": "Lead Designer",
-    "type": "UI_UX",
-    "heroImage": "/images/case-studies/doyou/doyou-hero.png",
-    "images": [
-      "/images/case-studies/doyou/doyou-gallery-1.png",
-      "/images/case-studies/doyou/doyou-gallery-2.png",
-      "/images/case-studies/doyou/doyou-gallery-3.png",
-      "/images/case-studies/doyou/doyou-gallery-4.png",
-      "/images/case-studies/doyou/doyou-gallery-5.png",
-      "/images/case-studies/doyou/doyou-gallery-6.png"
-    ],
-"problemStatement": [
-      "Lack of visual hierarchy in 'Challenges' leading to user decision paralysis.",
-      "Outdated aesthetic and inconsistent color palette that didn't align with 'Zen' brand values.",
-      "No incentive or feedback loop to encourage daily user consistency."
+    "problemStatement": [
+      "Platform built on deprecated mobile framework requiring complete technology migration to React/React Native ecosystem.",
+      "Poor visual hierarchy and overwhelming choice architecture in 'Challenges' section caused decision paralysis, while complex 5-step enrollment flow created friction in user onboarding.",
+      "Inconsistent design system with outdated aesthetic didn't reflect DoYou's wellness-focused brand identity or meet accessibility standards.",
+      "Missing gamification and feedback mechanisms resulted in low daily engagement and poor habit formation among users."
     ],
     "solutions": [
-      "Redesigned the Discovery architecture with a categorized 'Card System' to improve content scannability.",
-      "Developed a 'Zen-State' design system with a cohesive color palette focused on accessibility and calm.",
-      "Introduced a Milestone & Streak system to provide immediate positive reinforcement for daily activity."
+      "Collaborated with development team to assess and implement React/React Native migration strategy, ensuring scalable cross-platform foundation for web, iOS, and Android.",
+      "Redesigned information architecture with card-based categorization system and streamlined enrollment flow from 5 steps to 2, removing unnecessary decision points.",
+      "Developed comprehensive design system with WCAG AA-compliant color palette, reusable components, and consistent spacing rules that mapped directly to React components.",
+      "Designed milestone and streak gamification system with immediate visual feedback, validated through usability testing with 15+ users and daily dogfooding of production builds."
     ],
     "results": [
-      "Increased user retention by creating a rewarding feedback loop through gamification.",
-      "Established a modern, accessible design system that scales across mobile and web.",
-      "Reduced cognitive load by simplifying the 'Challenge Discovery' interface.",
-      "Significant reduction in user friction reflected in a 60% faster enrollment speed."
+      "Successfully migrated entire platform from deprecated framework to scalable React/React Native ecosystem.",
+      "Established design system with 100% adoption across all platforms, ensuring visual consistency and accelerating future development.",
+      "Reduced enrollment friction by 60%, streamlining onboarding flow from 5 clicks to 2.",
+      "Reduced cognitive load in challenge discovery, enabling users to make faster, more confident decisions."
     ],
-    "tools": ["Figma", "Zeplin", "Jira", "UserTesting"],
     "metrics": [
       {
-        "label": "User Engagement",
-        "value": "+40%",
-        "description": "Increase in Daily Active Users (DAU) through gamification."
+        "label": "Platform Rating",
+        "value": "4.8/5",
+        "description": "Average user satisfaction across web, iOS, and Android."
       },
       {
         "label": "Enrollment Speed",
         "value": "60% faster",
-        "description": "Reduced clicks to start a program from 5 to 2."
+        "description": "Streamlined onboarding from 5-step to 2-step flow."
       },
       {
-        "label": "Visual Satisfaction",
-        "value": "4.8/5",
-        "description": "Positive feedback on the new 'Zen' color palette."
+        "label": "Design System Coverage",
+        "value": "100%",
+        "description": "Consistent implementation across platforms from iOS to Android, and web."
       }
     ],
     "content": "Full case study content here...",
-    "tags": ["Mobile UI", "UX Research", "Gamification", "Design Systems", "Prototyping"],
+    "tags": [
+      "Mobile UI",
+      "UX Research",
+      "Gamification",
+      "Design Systems",
+      "Prototyping"
+    ],
     "featured": true,
-    "publishedAt": "2024-01-15"
+    "publishedAt": "2024-01-15",
+    "appStoreUrl": "https://apps.apple.com/us/app/doyou-yoga-mindful-fitness/id1205604277",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=co.skyengine.flow&hl=en_US",
+    "liveSiteUrl": "https://www.doyou.com/"
+  },
+  {
+    "id": "2",
+    "slug": "csu-dashboard-redesign",
+    "title": "CSU Dashboard Redesign: Laravel Migration & Design System Implementation",
+    "client": "CSU System Operations",
+    "duration": "24 months",
+    "role": "Full-Stack Developer",
+    "type": "FULL_STACK",
+    "tools": [
+      "Laravel",
+      "PHP",
+      "Vue.js",
+      "MySQL",
+      "Bootstrap",
+      "Sass",
+      "Git",
+      "Figma",
+      "PHPStorm"
+    ],
+    "heroImage": "/images/case-studies/csu/csu-hero.png",
+    "problemStatement": [
+      "Legacy dashboard system built on outdated PHP framework with inconsistent design patterns across high school and community college versions, creating maintenance overhead and poor user experience.",
+      "Platform existed in isolation from CSU's main ecosystem, using different authentication methods and data structures, preventing seamless integration with campus systems.",
+      "Outdated and inconsistent data sources made it difficult for educators, students, and parents to access reliable CSU campus statistics for informed enrollment decisions.",
+      "Lack of unified component library led to visual inconsistencies across dashboards, with each serving different audiences but requiring duplicate effort for similar features."
+    ],
+    "solutions": [
+      "Architected and led migration from legacy PHP to modern Laravel framework with Vue.js components, implementing MVC architecture with repository pattern and dependency injection for maintainable codebase.",
+      "Integrated dashboards with CSU's authentication system and unified data sources, implementing secure REST APIs with CSRF protection, role-based access control, and rate limiting.",
+      "Designed and built reusable component library with Bootstrap and Sass, establishing design system standards that reduced code duplication by 40% and ensured visual consistency.",
+      "Optimized MySQL database performance through strategic indexing and Eloquent ORM implementation, managing schema migrations to ensure data integrity across 23 campuses."
+    ],
+    "results": [
+      "Successfully migrated both high school and community college dashboards to Laravel, serving 10,000+ educators, students, and parents across California with reliable CSU campus statistics.",
+      "Reduced code duplication by 40% through reusable component library, accelerating feature development and simplifying maintenance across dashboard variants.",
+      "Integrated dashboards into CSU ecosystem with unified authentication and data sources, improving data accuracy and user experience.",
+      "Improved database query performance and established scalable architecture supporting 23 CSU campuses statewide."
+    ],
+    "metrics": [
+      {
+        "label": "Active Users",
+        "value": "10,000+",
+        "description": "Educators, students, and parents using dashboards across California."
+      },
+      {
+        "label": "Code Efficiency",
+        "value": "40% reduction",
+        "description": "Less code duplication through component library."
+      },
+      {
+        "label": "Campus Coverage",
+        "value": "23 campuses",
+        "description": "Statewide deployment across CSU system."
+      }
+    ],
+    "content": "Full case study content here...",
+    "tags": [
+      "Laravel",
+      "Vue.js",
+      "Design Systems",
+      "Database Optimization",
+      "Dashboard Design"
+    ],
+    "featured": true,
+    "publishedAt": "2024-12-15",
+    "liveSiteUrl": "https://partners.dashboards.calstate.edu/search/cc"
   }
 ]
