@@ -25,7 +25,7 @@ export interface Experience {
   id: string;
   company: string;
   role: string;
-  type: 'work' | 'research' | 'education' | 'volunteer';
+  type: 'WORK' | 'RESEARCH' | 'EDUCATION' | 'VOLUNTEER';
   startDate: string;
   endDate?: string;
   current: boolean;
@@ -54,11 +54,11 @@ export interface CaseStudy {
   client: string;
   duration: string;
   role: string;
-  type: 'UI_UX' | 'WEB_DESIGN' | 'BRANDING' | 'RESEARCH';
+  type: 'UI_UX' | 'WEB_DESIGN' | 'BRANDING' | 'RESEARCH' | 'FULL_STACK';
   heroImage: string;
   images: string[];
-  problemStatement: string;
-  solutions: string;
+  problemStatement: string[];
+  solutions: string[];
   tools: string[];
   results: string[];
   metrics?: Metric[];
@@ -77,19 +77,20 @@ export interface Project {
   title: string;
   description: string;
   longDescription: string;
-  type: 'web-app' | 'mobile-app' | 'api' | 'library' | 'tool';
-  image: string;
-  images: string[];
-  demoUrl?: string;
-  githubUrl?: string;
+  type: 'web-app' | 'mobile-app' | 'api' | 'library' | 'tool' | 'WEB_APP' | 'MOBILE_APP' | 'CLI_TOOL';
+  category?: string;
+  image?: string;
+  images?: string[];
+  demoUrl?: string | null;
+  githubUrl?: string | null;
   technologies: string[];
-  features: string[];
-  challenges: string[];
-  solutions: string[];
+  features?: string[];
+  challenges?: string[];
+  solutions?: string[];
   metrics?: Metric[];
   tags: string[];
   featured: boolean;
-  publishedAt: string;
+  publishedAt?: string;
 }
 
 export interface TOCItem {

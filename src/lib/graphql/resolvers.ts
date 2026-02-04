@@ -46,7 +46,7 @@ export const resolvers = {
       }
 
       return filtered.sort(
-        (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+        (a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime()
       );
     },
 
