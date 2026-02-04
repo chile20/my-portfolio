@@ -15,9 +15,18 @@ interface ExperienceCardProps {
  * Editorial-style card with minimal borders and typography focus
  */
 export function ExperienceCard({ experience, index }: ExperienceCardProps) {
-  const startDate = format(parseISO(experience.startDate), 'MMM yyyy');
-  const endDate = experience.endDate ? format(parseISO(experience.endDate), 'MMM yyyy') : 'Present';
-  const duration = `${startDate} - ${endDate}`;
+  const startDate = parseISO(experience.startDate);
+  const endDate = experience.endDate ? parseISO(experience.endDate) : null;
+  
+  const formattedStart = format(startDate, 'MMM yyyy');
+  const formattedEnd = endDate ? format(endDate, 'MMM yyyy') : 'Present';
+  
+  // Check if start and end are in the same month/year
+  const isSameMonth = endDate && 
+    startDate.getMonth() === endDate.getMonth() && 
+    startDate.getFullYear() === endDate.getFullYear();
+  
+  const duration = isSameMonth ? formattedStart : `${formattedStart} - ${formattedEnd}`;
 
   return (
     <motion.article
