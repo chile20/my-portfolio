@@ -86,9 +86,10 @@ export function Hero() {
                 ))}
                 <span className="h-4 w-px bg-slate-300 dark:bg-slate-700" role="separator" aria-hidden="true" />
                 <a
-                  href="/resume.pdf"
-                  download
-                  aria-label="Download resume as PDF"
+                  href={siteConfig.resume.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View resume"
                   className="flex items-center gap-2 text-slate-600 transition-colors hover:text-slate-900 active:text-slate-950 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 rounded-sm dark:text-slate-400 dark:hover:text-slate-100 dark:active:text-white"
                 >
                   <FileDown className="h-5 w-5" aria-hidden="true" />
