@@ -30,7 +30,7 @@ export function CaseStudyHero({ caseStudy }: CaseStudyHeroProps) {
                   </span>
                 ))}
               </div>
-              <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+              <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
                 {caseStudy.title}
               </h1>
             </div>
@@ -47,7 +47,7 @@ export function CaseStudyHero({ caseStudy }: CaseStudyHeroProps) {
               </div>
               <div className="col-span-2 sm:col-span-1">
                 <dt className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Role</dt>
-                <dd className="mt-2 text-base font-medium text-slate-900 dark:text-slate-200">Lead Designer</dd>
+                <dd className="mt-2 text-base font-medium text-slate-900 dark:text-slate-200">{caseStudy.role}</dd>
               </div>
             </div>
 

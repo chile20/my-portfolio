@@ -1,10 +1,10 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import Image from 'next/image';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { GalleryModal } from '@/components/ui/GalleryModal';
 
 interface ProjectGalleryProps {
   images: string[];
@@ -28,10 +28,8 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowLeft') handlePrevious();
-    if (e.key === 'ArrowRight') handleNext();
-    if (e.key === 'Escape') setSelectedImage(null);
+  const handleClose = () => {
+    setSelectedImage(null);
   };
 
   // Bento grid layout patterns based on image count
@@ -61,7 +59,7 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <h2 className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             Project Gallery
           </h2>
         </motion.div>
@@ -93,86 +91,16 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
         </div>
       </div>
 
-      {/* Minimal Lightbox */}
-      <AnimatePresence>
-        {selectedImage !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
-            onClick={() => setSelectedImage(null)}
-            onKeyDown={handleKeyDown}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Image lightbox"
-            tabIndex={0}
-          >
-            {/* Close button */}
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute right-6 top-6 z-10 text-white/70 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              aria-label="Close lightbox"
-            >
-              <X className="h-8 w-8" />
-            </button>
-
-            {/* Image counter */}
-            <div className="absolute left-1/2 top-6 -translate-x-1/2 text-sm font-medium text-white/70">
-              {selectedImage + 1} / {images.length}
-            </div>
-
-            {/* Navigation buttons */}
-            {images.length > 1 && (
-              <>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handlePrevious();
-                  }}
-                  className="absolute left-6 top-1/2 -translate-y-1/2 text-white/70 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft className="h-10 w-10" />
-                </button>
-
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleNext();
-                  }}
-                  className="absolute right-6 top-1/2 -translate-y-1/2 text-white/70 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  aria-label="Next image"
-                >
-                  <ChevronRight className="h-10 w-10" />
-                </button>
-              </>
-            )}
-
-            {/* Image */}
-            <motion.div
-              key={selectedImage}
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative mx-6 h-[75vh] w-[85vw] max-w-4xl" // Changed from max-w-7xl to max-w-4xl
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={images[selectedImage]}
-                alt={`${title} - Image ${selectedImage + 1}`}
-                fill
-                className="object-contain"
-                sizes="85vw"
-                priority
-                quality={85}
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Gallery Modal */}
+      <GalleryModal
+        images={images}
+        currentIndex={selectedImage}
+        isOpen={selectedImage !== null}
+        onClose={handleClose}
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+        title={title}
+      />
     </section>
   );
 }

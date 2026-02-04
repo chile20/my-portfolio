@@ -26,7 +26,7 @@ export function ResultsImpact({ caseStudy }: ResultsImpactProps) {
   return (
     <section 
       ref={ref} 
-      className="py-16"
+      className="py-16 bg-white dark:bg-slate-950"
       aria-labelledby="results-heading"
     >
       <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12">
@@ -37,7 +37,7 @@ export function ResultsImpact({ caseStudy }: ResultsImpactProps) {
           transition={{ duration: 0.6 }}
           className="mb-24"
         >
-          <h2 id="results-heading" className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
+          <h2 id="results-heading" className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             Impact & Results
           </h2>
         </motion.header>
@@ -57,7 +57,7 @@ export function ResultsImpact({ caseStudy }: ResultsImpactProps) {
                   <div className="mb-3 text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">
                     {metric.label}
                   </div>
-                  <div className="mb-4 text-5xl font-bold tracking-tighter text-slate-900 dark:text-white lg:text-6xl">
+                  <div className="mb-4 text-5xl font-bold tracking-tighter text-slate-900 dark:text-white">
                     {metric.value}
                   </div>
                   {metric.description && (
@@ -83,9 +83,7 @@ export function ResultsImpact({ caseStudy }: ResultsImpactProps) {
             <h3 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
               Key Achievements
             </h3>
-            <p className="mt-4 leading-relaxed text-slate-600 dark:text-slate-400">
-              Outcomes and improvements delivered through strategic execution
-            </p>
+
           </motion.div>
 
           <motion.div 

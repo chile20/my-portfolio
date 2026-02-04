@@ -15,7 +15,7 @@ export function ProblemStatement({ caseStudy }: ProblemStatementProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="relative overflow-hidden py-16">
+    <section ref={ref} className="relative overflow-hidden py-18">
       <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -24,7 +24,7 @@ export function ProblemStatement({ caseStudy }: ProblemStatementProps) {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <h2 className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             The Challenge & Solution
           </h2>
         </motion.div>
