@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, FileDown } from 'lucide-react';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import Container from '@/components/ui/Container';
 import { siteConfig } from '@/config/site';
 
@@ -13,6 +14,15 @@ const socialLinks = [
 ];
 
 export function Hero() {
+  const [hasProfileImage, setHasProfileImage] = useState(false);
+
+  useEffect(() => {
+    // Check if profile image exists
+    fetch('/images/profile.jpg', { method: 'HEAD' })
+      .then(res => setHasProfileImage(res.ok))
+      .catch(() => setHasProfileImage(false));
+  }, []);
+
   return (
     <section className="relative py-16">
       <Container>
@@ -89,22 +99,24 @@ export function Hero() {
           </div>
 
           {/* Right - Profile Picture */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex-shrink-0"
-          >
-            <div className="relative h-48 w-48 lg:h-56 lg:w-56 overflow-hidden rounded-full ring-4 ring-slate-200 dark:ring-slate-800 shadow-xl">
-              <Image
-                src="/images/profile.jpg"
-                alt={siteConfig.name}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </motion.div>
+          {hasProfileImage && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="flex-shrink-0"
+            >
+              <div className="relative h-48 w-48 lg:h-56 lg:w-56 overflow-hidden rounded-full ring-4 ring-slate-200 dark:ring-slate-800 shadow-xl">
+                <Image
+                  src="/images/profile.jpg"
+                  alt={siteConfig.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </motion.div>
+          )}
         </div>
       </Container>
     </section>
