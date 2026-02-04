@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "title": "AirAsia Check-In App",
+    "description": "Internal mobile app for staff to check in passengers at Malaysia airports",
+    "image": "/images/design/airasia-checkinapp.png",
+    "category": "Mobile UI",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "title": "AirAsia Delivery App",
+    "description": "Internal mobile app for staff to manage airport deliveries in Malaysia",
+    "image": "/images/design/airasia-deliveryapp.png",
+    "category": "Mobile UI",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "title": "LeapXpert Mobile",
+    "description": "Award-winning enterprise messaging app mobile interface for Hong Kong market",
+    "image": "/images/design/leapxpert-mobile.png",
+    "category": "Mobile UI",
+    "featured": true
+  },
+  {
+    "id": "4",
+    "title": "LeapXpert Web",
+    "description": "Award-winning enterprise messaging app web platform for Hong Kong market",
+    "image": "/images/design/leapxpert-web.png",
+    "category": "Web UI",
+    "featured": true
+  },
+  {
+    "id": "5",
+    "title": "Travaria",
+    "description": "Hotel booking platform designed for Hong Kong travelers",
+    "image": "/images/design/travaria.png",
+    "category": "Web UI",
+    "featured": false
+  }
+]

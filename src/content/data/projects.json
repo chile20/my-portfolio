@@ -1,170 +1,78 @@
 [
   {
     "id": "1",
-    "slug": "ai-resume-matcher",
-    "title": "AI Resume Matcher",
-    "description": "Intelligent resume matching system using machine learning to connect candidates with job opportunities",
-    "longDescription": "A comprehensive AI-powered platform that analyzes resumes and job descriptions to provide intelligent matching recommendations. The system uses natural language processing and machine learning algorithms to understand skills, experience, and requirements.",
+    "slug": "ai-resume-job-matcher",
+    "title": "AI Resume Job Matcher",
+    "description": "Intelligent resume analysis tool using OpenAI API to provide personalized job matching and improvement suggestions",
+    "longDescription": "A mobile-responsive web application that leverages OpenAI's natural language processing capabilities to analyze resumes and provide tailored improvement suggestions. Built with microservices architecture principles for scalability and optimized performance with secure data handling.",
     "type": "WEB_APP",
-    "image": "/images/projects/ai-resume-matcher/hero.jpg",
-    "images": [
-      "/images/projects/ai-resume-matcher/dashboard.jpg",
-      "/images/projects/ai-resume-matcher/matching.jpg",
-      "/images/projects/ai-resume-matcher/analytics.jpg"
-    ],
-    "demoUrl": "https://ai-resume-matcher-demo.com",
+    "category": "work",
+    "demoUrl": null,
     "githubUrl": "https://github.com/yourusername/ai-resume-matcher",
     "technologies": [
-      "Next.js",
-      "TypeScript",
+      "JavaScript",
       "Python",
-      "TensorFlow",
-      "PostgreSQL",
-      "Tailwind CSS",
-      "OpenAI API"
+      "Flask",
+      "TailwindCSS",
+      "OpenAI API",
+      "Redis",
+      "PostgreSQL"
     ],
-    "features": [
-      "AI-powered resume parsing and analysis",
-      "Intelligent job matching algorithm",
-      "Real-time matching score calculation",
-      "Detailed skills gap analysis",
-      "Interactive dashboard with analytics"
+    "tags": [
+      "AI",
+      "OpenAI",
+      "Flask",
+      "Full-Stack",
+      "Microservices",
+      "NLP"
     ],
-    "challenges": [
-      "Processing diverse resume formats accurately",
-      "Optimizing matching algorithm for speed and accuracy",
-      "Handling large-scale data processing efficiently"
-    ],
-    "solutions": [
-      "Implemented multi-format PDF and DOCX parsing with fallback strategies",
-      "Used vector embeddings and cosine similarity for fast matching",
-      "Implemented Redis caching and background job processing"
-    ],
-    "metrics": [
-      {
-        "label": "Matching Accuracy",
-        "value": "92%",
-        "description": "Based on recruiter feedback"
-      },
-      {
-        "label": "Processing Speed",
-        "value": "<2s",
-        "description": "Average time per resume"
-      },
-      {
-        "label": "Users",
-        "value": "1,000+",
-        "description": "Active beta testers"
-      }
-    ],
-    "tags": ["AI", "Machine Learning", "Full-Stack", "Next.js"],
     "featured": true,
-    "publishedAt": "2024-03-15"
+    "publishedAt": "2024-02-25"
   },
   {
     "id": "2",
-    "slug": "csu-dashboard",
-    "title": "CSU Operations Dashboard",
-    "description": "Enterprise dashboard application for California State University system operations",
-    "longDescription": "A comprehensive operations dashboard serving 10,000+ users across the CSU system. Provides real-time monitoring, analytics, and management tools for system administrators.",
-    "type": "WEB_APP",
-    "image": "/images/projects/csu-dashboard/hero.jpg",
-    "images": [
-      "/images/projects/csu-dashboard/overview.jpg",
-      "/images/projects/csu-dashboard/analytics.jpg",
-      "/images/projects/csu-dashboard/settings.jpg"
-    ],
+    "slug": "information-crawler-search-engine",
+    "title": "Information Crawler and Search Engine",
+    "description": "CLI-based search engine with custom web crawling, smart indexing, and lightning-fast search across large datasets",
+    "longDescription": "A sophisticated command-line search engine featuring custom web crawling capabilities, intelligent indexing algorithms, and optimized search functionality. Built to handle large-scale datasets efficiently using advanced Python libraries and NoSQL database architecture.",
+    "type": "CLI_TOOL",
+    "category": "experiment",
     "demoUrl": null,
-    "githubUrl": null,
+    "githubUrl": "https://github.com/yourusername/information-crawler",
     "technologies": [
-      "React",
-      "Vue.js",
-      "Laravel",
-      "MySQL",
-      "Redis",
-      "Chart.js",
-      "WebSockets"
+      "Python",
+      "scikit-learn",
+      "scipy",
+      "pandas",
+      "MongoDB",
+      "BeautifulSoup",
+      "Click"
     ],
-    "features": [
-      "Real-time data synchronization across multiple campuses",
-      "Advanced analytics and reporting",
-      "Role-based access control",
-      "Customizable dashboard widgets",
-      "Export functionality for reports"
+    "tags": [
+      "Python",
+      "Search Engine",
+      "Web Scraping",
+      "MongoDB",
+      "CLI"
     ],
-    "challenges": [
-      "Handling real-time updates for 10K+ concurrent users",
-      "Managing complex permission systems",
-      "Ensuring 99.9% uptime for critical operations"
-    ],
-    "solutions": [
-      "Implemented WebSocket connections with automatic reconnection",
-      "Built a flexible RBAC system with granular permissions",
-      "Set up load balancing and redundancy with health monitoring"
-    ],
-    "metrics": [
-      {
-        "label": "Active Users",
-        "value": "10,000+",
-        "description": "Across CSU system"
-      },
-      {
-        "label": "Uptime",
-        "value": "99.95%",
-        "description": "Over 12 months"
-      },
-      {
-        "label": "Performance Improvement",
-        "value": "40%",
-        "description": "Reduction in page load time"
-      }
-    ],
-    "tags": ["Enterprise", "Dashboard", "React", "Vue.js", "Laravel"],
-    "featured": true,
-    "publishedAt": "2023-08-20"
+    "featured": false,
+    "publishedAt": "2023-10-05"
   },
   {
     "id": "3",
-    "slug": "design-system",
-    "title": "Component Design System",
-    "description": "Comprehensive React component library with Storybook documentation",
-    "longDescription": "A production-ready design system featuring reusable React components, design tokens, and comprehensive documentation. Built with accessibility and developer experience in mind.",
-    "type": "LIBRARY",
-    "image": "/images/projects/design-system/hero.jpg",
-    "images": [
-      "/images/projects/design-system/components.jpg",
-      "/images/projects/design-system/tokens.jpg",
-      "/images/projects/design-system/storybook.jpg"
-    ],
-    "demoUrl": "https://design-system-storybook.com",
-    "githubUrl": "https://github.com/yourusername/design-system",
+    "slug": "crochet-counter-app",
+    "title": "Crochet Counter App",
+    "description": "Cross-platform mobile app for tracking crochet patterns and projects with intuitive pattern management",
+    "longDescription": "A Flutter-based mobile application designed to help crochet enthusiasts track their patterns and projects. Features component-based architecture with reusable widgets, efficient state management, and local data persistence for offline-first functionality.",
+    "type": "MOBILE_APP",
+    "category": "experiment",
+    "demoUrl": null,
+    "githubUrl": "https://github.com/chile20/crochet-app",
     "technologies": [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Storybook",
-      "Radix UI",
-      "Framer Motion"
+      "Dart",
+      "Flutter",
+      "Hive"
     ],
-    "features": [
-      "50+ accessible React components",
-      "Dark mode support out of the box",
-      "Comprehensive Storybook documentation",
-      "Design tokens for consistent theming",
-      "TypeScript support with full type safety"
-    ],
-    "challenges": [
-      "Ensuring accessibility across all components",
-      "Balancing flexibility with consistency",
-      "Managing component complexity and bundle size"
-    ],
-    "solutions": [
-      "Used Radix UI primitives for accessible foundations",
-      "Implemented compound component patterns for flexibility",
-      "Set up tree-shaking and analyzed bundle impact"
-    ],
-    "tags": ["Design System", "React", "TypeScript", "Accessibility"],
-    "featured": true,
-    "publishedAt": "2024-01-10"
-  }
+    "tags": ["Flutter", "Mobile", "Cross-Platform", "Dart", "Hive"],
+    "featured": false  }
 ]

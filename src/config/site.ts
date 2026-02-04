@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'Chi Le',
   title: 'Full-Stack Developer & UI/UX Designer',
   description:
-    'Full-stack developer specializing in modern web development. CS graduate from Cal Poly Pomona with experience building dashboard applications for 10K+ users.',
+    'I build apps and care a lot about UI/UX.',
   url: 'https://lechi.dev',
   links: {
     github: 'https://github.com/chile20',

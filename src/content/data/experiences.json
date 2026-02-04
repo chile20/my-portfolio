@@ -55,6 +55,7 @@
       "Figma",
       "Adobe XD",
       "Sketch",
+      "Jira",
       "HTML/CSS",
       "JavaScript"
     ],
@@ -86,17 +87,15 @@
     "role": "B.S. Computer Science",
     "type": "EDUCATION",
     "startDate": "2021-01-01",
-    "endDate": "2025-01-31",
+    "endDate": "2025-05-15",
     "current": false,
-    "description": "Bachelor of Science in Computer Science with 3.92 GPA",
+    "description": "Maintained a 3.92 GPA while synthesizing core computational theory with modern software engineering to build scalable, data-driven solutions.",
     "technologies": [
-      "PHP",
-      "Laravel",
-      "JavaScript",
-      "TypeScript",
-      "Vue.js",
-      "MySQL",
-      "Docker"
+    "Software Engineering Lifecycle",
+    "Data Structures & Algorithms",
+    "Relational Database Design",
+    "Agile/Scrum Methodologies",
+    "Containerization & Deployment"
     ],
     "logo": "/images/companies/cpp.png",
     "location": "Pomona, CA"
@@ -106,12 +105,46 @@
     "company": "University of Economics and Law",
     "role": "B.A. Finance",
     "type": "EDUCATION",
-    "startDate": "2016-09-01",
+    "startDate": "2016-08-01",
     "endDate": "2019-06-30",
     "current": false,
-    "description": "Bachelor of Arts in Finance, graduated before migrating to the United States in 2019",
-    "technologies": [],
+    "description": "Built a foundation in financial analysis and quantitative reasoning, establishing the professional framework for my 2019 relocation to the US.",
+    "technologies": [
+    "Quantitative Analysis",
+    "Financial Data Analysis",
+    "Principles of Accounting",
+    "Data-Driven Decision Making",
+    "Behavioral Psychology"
+  ],
     "logo": "/images/companies/uel.png",
     "location": "Ho Chi Minh City, Vietnam"
+  },
+  {
+    "id": "7",
+    "company": "AWE (Augmented World Expo)",
+    "role": "Accessibility & Operations Coordinator",
+    "type": "VOLUNTEER",
+    "startDate": "2025-06-01",
+    "endDate": "2025-06-30",
+    "current": false,
+    "description": "Directed logistics and on-site operations to ensure a seamless experience for global attendees. Specialized in accessibility oversight, ensuring the event met inclusive design standards for diverse participant needs in a high-tech environment.",
+    "technologies": [
+    ],
+    "logo": "/images/companies/awe.png",
+    "location": "Long Beach, CA"
+  },
+   {
+    "id": "8",
+    "company": "TechCrunch Disrupt",
+    "role": "Strategic Coordinator for CodeLink",
+    "type": "VOLUNTEER",
+    "startDate": "2024-10-01",
+    "endDate": "2024-10-31",
+    "current": false,
+    "description": "Acted as a brand ambassador and coordinator at one of the world’s leading tech conferences. Facilitated high-level networking, pitched company solutions to global innovators, and managed lead generation with potential enterprise customers.",
+    "technologies": [
+    ],
+    "logo": "/images/companies/codelink.png",
+    "location": "San Francisco, CA"
   }
 ]
