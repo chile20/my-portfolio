@@ -31,7 +31,7 @@ export function ProjectNavigation({ previous, next }: ProjectNavigationProps) {
           className="mb-12 text-center"
         >
           <Link
-            href="/design"
+            href="/projects"
             className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-6 py-3 font-medium text-slate-700 shadow-sm transition-all hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
           >
             <Grid3x3 className="h-5 w-5" />

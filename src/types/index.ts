@@ -51,21 +51,21 @@ export interface CaseStudy {
   id: string;
   slug: string;
   title: string;
-  client: string;
-  duration: string;
+  client?: string;
+  duration?: string;
   role: string;
   type: 'UI_UX' | 'WEB_DESIGN' | 'BRANDING' | 'RESEARCH' | 'FULL_STACK';
   heroImage: string;
-  images: string[];
-  problemStatement: string[];
-  solutions: string[];
-  tools: string[];
-  results: string[];
+  images?: string[];
+  problemStatement?: string[];
+  solutions?: string[];
+  tools?: string[];
+  results?: string[];
   metrics?: Metric[];
-  content: string; // MDX content
-  tags: string[];
+  content?: string; // MDX content
+  tags?: string[];
   featured: boolean;
-  publishedAt: string;
+  publishedAt?: string;
   appStoreUrl?: string;
   googlePlayUrl?: string;
   liveSiteUrl?: string;
@@ -75,20 +75,20 @@ export interface Project {
   id: string;
   slug: string;
   title: string;
-  description: string;
-  longDescription: string;
+  description?: string;
+  longDescription?: string;
   type: 'web-app' | 'mobile-app' | 'api' | 'library' | 'tool' | 'WEB_APP' | 'MOBILE_APP' | 'CLI_TOOL';
   category?: string;
   image?: string;
   images?: string[];
   demoUrl?: string | null;
   githubUrl?: string | null;
-  technologies: string[];
+  technologies?: string[];
   features?: string[];
   challenges?: string[];
   solutions?: string[];
   metrics?: Metric[];
-  tags: string[];
+  tags?: string[];
   featured: boolean;
   publishedAt?: string;
 }
