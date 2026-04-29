@@ -3,7 +3,7 @@ export const siteConfig = {
   title: 'Full-Stack Developer & UI/UX Designer',
   description:
     'I build apps and care a lot about UI/UX.',
-  url: 'https://lechi.dev',
+  url: 'https://chile.is-a.dev/',
   links: {
     github: 'https://github.com/chile20',
     linkedin: 'https://linkedin.com/in/chile20',
