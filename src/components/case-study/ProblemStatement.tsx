@@ -47,12 +47,12 @@ export function ProblemStatement({ caseStudy }: ProblemStatementProps) {
 
             {/* Issues List */}
             <ul className="space-y-6" role="list">
-              {caseStudy.problemStatement.map((issue, index) => (
+              {caseStudy.problemStatement?.map((issue, index) => (
                 <li
                   key={index}
                   className="flex items-start gap-4 text-base leading-relaxed text-slate-700 dark:text-slate-300"
                 >
-                  <span 
+                  <span
                     className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-red-500 dark:bg-red-400"
                     aria-hidden="true"
                   />
@@ -82,12 +82,12 @@ export function ProblemStatement({ caseStudy }: ProblemStatementProps) {
 
             {/* Solutions List */}
             <ul className="space-y-6" role="list">
-              {caseStudy.solutions.map((solution, index) => (
+              {caseStudy.solutions?.map((solution, index) => (
                 <li
                   key={index}
                   className="flex items-start gap-4 text-base leading-relaxed text-slate-700 dark:text-slate-300"
                 >
-                  <span 
+                  <span
                     className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-emerald-500 dark:bg-emerald-400"
                     aria-hidden="true"
                   />

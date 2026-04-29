@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
-import { Mail, FileText, Globe, Github, Linkedin } from 'lucide-react';
+import { Mail, FileText, Globe } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { siteConfig } from '@/config/site';
 
 const links = [
@@ -12,12 +13,12 @@ const links = [
   {
     title: 'GitHub',
     href: siteConfig.links.github,
-    icon: Github,
+    icon: FaGithub,
   },
   {
     title: 'LinkedIn',
     href: siteConfig.links.linkedin,
-    icon: Linkedin,
+    icon: FaLinkedin,
   },
   {
     title: 'Resume',
