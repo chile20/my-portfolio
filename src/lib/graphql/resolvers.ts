@@ -68,14 +68,14 @@ export const resolvers = {
       const allTags = new Set<string>();
 
       projectsData.forEach((project) => {
-        project.tags.forEach((tag) => allTags.add(tag));
+        project.tags?.forEach((tag) => allTags.add(tag));
       });
 
       return Array.from(allTags).map((tag, index) => ({
         id: String(index + 1),
         name: tag,
         slug: tag.toLowerCase().replace(/\s+/g, '-'),
-        count: projectsData.filter((p) => p.tags.includes(tag)).length,
+        count: projectsData.filter((p) => p.tags?.includes(tag)).length,
       }));
     },
   },

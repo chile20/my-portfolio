@@ -57,7 +57,7 @@ export function SolutionSection({ caseStudy }: SolutionSectionProps) {
           </h3>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {caseStudy.results.map((result, index) => (
+            {caseStudy.results?.map((result, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
@@ -70,7 +70,7 @@ export function SolutionSection({ caseStudy }: SolutionSectionProps) {
                 </div>
                 <p className="text-base text-slate-700 dark:text-slate-300">{result}</p>
               </motion.div>
-            ))}
+            )) ?? []}
           </div>
         </motion.div>
       </div>

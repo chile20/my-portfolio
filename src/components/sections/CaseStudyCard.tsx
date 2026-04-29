@@ -92,8 +92,8 @@ export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
           {caseStudy.tools && caseStudy.tools.length > 0 && (
             <div className="pt-2">
               <p className="text-sm text-slate-500 dark:text-slate-400">
-                {caseStudy.tools.slice(0, 4).join(' • ')}
-                {caseStudy.tools.length > 4 && ` • +${caseStudy.tools.length - 4} more`}
+                {caseStudy.tools?.slice(0, 4)?.join(' • ')}
+                {caseStudy.tools && caseStudy.tools.length > 4 && ` • +${caseStudy.tools.length - 4} more`}
               </p>
             </div>
           )}

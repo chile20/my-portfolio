@@ -56,9 +56,9 @@ export function ProblemStatement({ caseStudy }: ProblemStatementProps) {
                     className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-red-500 dark:bg-red-400"
                     aria-hidden="true"
                   />
-                  <span>{issue.trim()}</span>
+                  <span>{issue?.trim()}</span>
                 </li>
-              ))}
+              )) ?? []}
             </ul>
 
             {/* Subtle bottom border */}
@@ -91,9 +91,9 @@ export function ProblemStatement({ caseStudy }: ProblemStatementProps) {
                     className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-emerald-500 dark:bg-emerald-400"
                     aria-hidden="true"
                   />
-                  <span>{solution.trim()}</span>
+                  <span>{solution?.trim()}</span>
                 </li>
-              ))}
+              )) ?? []}
             </ul>
 
             {/* Subtle bottom border */}

@@ -39,8 +39,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         {project.technologies && project.technologies.length > 0 && (
           <div className="pt-2">
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              {project.technologies.slice(0, 5).join(' • ')}
-              {project.technologies.length > 5 && ` • +${project.technologies.length - 5} more`}
+              {project.technologies?.slice(0, 5)?.join(' • ')}
+              {project.technologies && project.technologies.length > 5 && ` • +${project.technologies.length - 5} more`}
             </p>
           </div>
         )}

@@ -25,7 +25,7 @@ export function CaseStudyHero({ caseStudy }: CaseStudyHeroProps) {
           <motion.div {...fadeIn} className="space-y-8 lg:col-span-7">
             <div className="space-y-4">
               <div className="flex gap-3">
-                {caseStudy.tags?.slice(0, 2).map((tag) => (
+                {caseStudy.tags?.slice(0, 2)?.map((tag) => (
                   <span key={tag} className="text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
                     {tag}
                   </span>

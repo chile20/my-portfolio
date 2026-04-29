@@ -77,12 +77,12 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
               Key Responsibilities
             </h4>
             <ul className="space-y-2 text-base text-slate-600 dark:text-slate-400">
-              {experience.responsibilities.map((item, idx) => (
+              {experience.responsibilities?.map((item, idx) => (
                 <li key={idx} className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-400 dark:bg-slate-500" />
                   <span>{item}</span>
                 </li>
-              ))}
+              )) ?? []}
             </ul>
           </div>
         )}
@@ -94,12 +94,12 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
               Achievements
             </h4>
             <ul className="space-y-2 text-base text-slate-600 dark:text-slate-400">
-              {experience.achievements.map((item, idx) => (
+              {experience.achievements?.map((item, idx) => (
                 <li key={idx} className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-400 dark:bg-slate-500" />
                   <span>{item}</span>
                 </li>
-              ))}
+              )) ?? []}
             </ul>
           </div>
         )}
@@ -108,7 +108,7 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
         {experience.technologies && experience.technologies.length > 0 && (
           <div className="pt-2">
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              {experience.technologies.join(' • ')}
+              {experience.technologies?.join(' • ')}
             </p>
           </div>
         )}

@@ -45,9 +45,9 @@ export function ResultsImpact({ caseStudy }: ResultsImpactProps) {
         {/* Big Metrics Grid: Clean Typography */}
         {caseStudy.metrics && caseStudy.metrics.length > 0 && (
           <div className="mb-32">
-            
+
             <div className="grid grid-cols-1 gap-16 sm:grid-cols-2 lg:grid-cols-3">
-              {caseStudy.metrics.map((metric, index) => (
+              {caseStudy.metrics?.map((metric, index) => (
                 <motion.div
                   key={metric.label}
                   {...fadeIn}
@@ -68,7 +68,7 @@ export function ResultsImpact({ caseStudy }: ResultsImpactProps) {
                   {/* Subtle bottom line */}
                   <div className="mt-6 h-px w-16 bg-gradient-to-r from-slate-900 to-transparent dark:from-slate-100" />
                 </motion.div>
-              ))}
+              )) ?? []}
             </div>
           </div>
         )}
@@ -92,22 +92,22 @@ export function ResultsImpact({ caseStudy }: ResultsImpactProps) {
             className="lg:col-span-8"
           >
             <ul className="space-y-8" role="list">
-              {caseStudy.results.map((result, index) => (
-                <li 
-                  key={index} 
+              {caseStudy.results?.map((result, index) => (
+                <li
+                  key={index}
                   className="flex items-start gap-6 group"
                 >
-                  <span 
+                  <span
                     className="mt-2 text-xs font-mono text-slate-300 dark:text-slate-700"
                     aria-hidden="true"
                   >
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <p className="flex-1 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-                    {result.trim()}
+                    {result?.trim()}
                   </p>
                 </li>
-              ))}
+              )) ?? []}
             </ul>
 
             {/* Subtle divider at bottom */}
