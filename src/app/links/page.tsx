@@ -34,7 +34,7 @@ const links = [
 
 export default function LinksPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen md:min-h-screen min-h-[100dvh] bg-white dark:bg-slate-900 flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         {/* Profile */}
         <motion.div
